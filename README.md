@@ -32,6 +32,9 @@ Corrigez les fautes dans les tableaux et faites-en un tableau correct.
 ```javascript
 [1, 2 3 4 5, 6, 7]  ‘The’ ‘quick’ ‘brown’, ‘fox’ ‘jumped’, ‘over’ the lazy, ‘dog, ]  true false, true]
 ```
+[1, 2, 3, 4, 5, 6, 7]
+['The', 'quick', 'brown', 'fox', 'jumped', 'over', 'the', 'lazy', 'dog']
+[true, false, true]
 
 ---
 
@@ -40,7 +43,7 @@ Corrigez les fautes dans les tableaux et faites-en un tableau correct.
 
 ```javascript
 function tableauVide() {
- 
+  return [];
 }
 // tableauVide() -> []
 ```
@@ -52,9 +55,11 @@ function tableauVide() {
 
 ```javascript
 function tableauNombres() {
+    return [1, 2, 3, 4, 5];
 }
 // tableauNombres() -> [1, 2, 3, 4, 5]
 ```
+
 
 ---
 
@@ -63,6 +68,7 @@ function tableauNombres() {
 
 ```javascript
 function tableauBooleens() {
+    return [true, true, true];
 }
 // tableauBooleens() -> [true, true, true]
 ```
@@ -74,10 +80,12 @@ function tableauBooleens() {
 
 ```javascript
 function tableauChaines() {
+    return ['Ahmed', 'Vega'];
 }
 
 // tableauChaines() -> ['Ahmed', 'Vega']
 ```
+
 
 ---
 
@@ -86,10 +94,12 @@ function tableauChaines() {
 
 ```javascript
 function longueurTableau() {
+    return tableau.length;
 }
 // longueurTableau([1, 2, 3, 4]) -> 4
 // longueurTableau([]) -> 0
 ```
+
 
 ---
 
@@ -97,7 +107,8 @@ function longueurTableau() {
 Écrivez une fonction appelée **premierElement** qui prend un tableau en paramètre et retourne le premier élément.
 
 ```javascript
-function premierElement() {
+function premierElement(tableau) {
+    return tableau[0];
 }
 // premierElement([1,2,3,4]) -> 1
 ```
@@ -109,6 +120,7 @@ function premierElement() {
 
 ```javascript
 function dernierElement() {
+    return tableau[tableau.length - 1];
 }
 
 // dernierElement([1,2,3,4]) -> 4
@@ -120,8 +132,10 @@ function dernierElement() {
 Écrivez une fonction appelée **elementsApres** qui prend un tableau et un index, et retourne tous les éléments après cet index.
 
 ```javascript
-function elementsApres() {
+function elementsApres(tableau, index) {
+  return tableau.slice(index + 1);
 }
+
 
 elementsApres(['a', 'b', 'c', 'd'], 1) -> ['c', 'd']
 ```
@@ -132,8 +146,10 @@ elementsApres(['a', 'b', 'c', 'd'], 1) -> ['c', 'd']
 Écrivez une fonction appelée **elementsAvant** qui prend un tableau et un index, et retourne tous les éléments avant cet index.
 
 ```javascript
-function elementsAvant() {
+function elementsAvant(tableau, index) {
+  return tableau.slice(0, index);
 }
+
 
 elementsAvant(['a', 'b', 'c', 'd'], 2) -> ['a', 'b']
 ```
@@ -144,8 +160,10 @@ elementsAvant(['a', 'b', 'c', 'd'], 2) -> ['a', 'b']
 Écrivez une fonction appelée **ajouterFin** qui prend un tableau et un élément, et retourne un nouveau tableau avec l’élément ajouté à la fin.
 
 ```javascript
-function ajouterFin() {
+function ajouterFin(tableau, element) {
+  return tableau.concat(element);
 }
+
 
 ajouterFin(['a', 'b'], 'c') -> ['a', 'b', 'c']
 ```
@@ -156,8 +174,10 @@ ajouterFin(['a', 'b'], 'c') -> ['a', 'b', 'c']
 Écrivez une fonction appelée **supprimerDernier** qui prend un tableau et retourne un nouveau tableau sans le dernier élément.
 
 ```javascript
-function supprimerDernier() {
+function supprimerDernier(tableau) {
+  return tableau.slice(0, tableau.length - 1);
 }
+
 supprimerDernier(['a', 'b', 'c']) -> ['a', 'b']
 ```
 
@@ -167,8 +187,10 @@ supprimerDernier(['a', 'b', 'c']) -> ['a', 'b']
 Écrivez une fonction appelée **ajouterDebut** qui prend un tableau et un élément, et retourne un nouveau tableau avec l’élément ajouté au début.
 
 ```javascript
-function ajouterDebut() {
+function ajouterDebut(tableau, element) {
+  return [element].concat(tableau);
 }
+
 
 ajouterDebut(['b', 'c'], 'a') -> ['a', 'b', 'c']
 ```
@@ -180,7 +202,9 @@ ajouterDebut(['b', 'c'], 'a') -> ['a', 'b', 'c']
 
 ```javascript
 function supprimerPremier(tableau) {
+  return tableau.slice(1);
 }
+
 supprimerPremier(['a', 'b', 'c']) -> ['b', 'c']
 ```
 
@@ -192,8 +216,12 @@ supprimerPremier(['a', 'b', 'c']) -> ['b', 'c']
 
 
 ```javascript
-function reassignerDernier() {
+function reassignerDernier(tableau, element) {
+  let nouveauTableau = tableau.slice();
+  nouveauTableau[nouveauTableau.length - 1] = element;
+  return nouveauTableau;
 }
+
 reassignerDernier(['a', 'b', 'c'], 'x') -> ['a', 'b', 'x']
 
 ```
